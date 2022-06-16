@@ -19,7 +19,7 @@ public class TareaModel {
     private Integer id;
 
     @Column(name = "tar_name", nullable = false, length = 70)
-    private String tarName;
+    private String name;
 
     @OneToMany(
             fetch = FetchType.EAGER,

@@ -15,13 +15,13 @@ public class SubTareaModel {
     private Integer id;
 
     @Column(name = "sub_name", nullable = false, length = 100)
-    private String subName;
+    private String name;
 
     @Column(name = "sub_complete", nullable = false)
-    private Integer subComplete;
+    private Boolean complete;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "tarea_tar_id", nullable = false)
+    @JoinColumn(name = "sub_tarea_id", nullable = false)
     @JsonBackReference
     private TareaModel tareaTar;
 
