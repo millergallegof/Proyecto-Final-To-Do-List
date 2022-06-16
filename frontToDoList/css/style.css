@@ -1,0 +1,13 @@
+nav {
+    border-radius: 15px;
+}
+
+#cardCrear {
+    height: 10rem;
+    padding-top: 20px;
+    border: 1px solid rgb(53, 52, 52);
+}
+
+#tareas {
+    margin-top: 20px;
+}
