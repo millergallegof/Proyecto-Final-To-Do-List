@@ -20,8 +20,8 @@ public class TareasController {
     ListTareaService listTareaService;
 
     @PostMapping(path = "tarea")
-    public TareaModel createTarea(@RequestBody TareaModel tarea) {
-        return listTareaService.createTarea(tarea);
+    public TareaModel createTarea(@RequestBody TareaModel tareas) {
+        return listTareaService.createTarea(tareas);
     }
 
     @PostMapping(path = "subTarea/{id}")
@@ -45,9 +45,14 @@ public class TareasController {
         return listTareaService.updateSubTarea(id, subTarea);
     }
 
-    @GetMapping(path = "tarea/{name}")
+    @GetMapping(path = "buscarTarea/{name}")
     public Optional<TareaModel> getTareaByName(@PathVariable("name") String name) {
         return listTareaService.getTareaByName(name);
+    }
+
+    @GetMapping(path = "buscarSubtarea/tarea/{id}")
+    public List<SubTareaModel> getSubTareaByTarea(@PathVariable("id") TareaModel tarea) {
+        return listTareaService.getSubTareasByTarea(tarea);
     }
 
     @GetMapping(path = "tarea/{id}")
