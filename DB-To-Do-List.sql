@@ -26,6 +26,6 @@ CREATE TABLE IF NOT EXISTS toDoList.sub_tarea (
   CONSTRAINT fk_sub_tarea_tarea
     FOREIGN KEY (tarea_tar_id)
     REFERENCES toDoList.tarea (tar_id)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
