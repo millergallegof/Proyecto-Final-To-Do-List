@@ -70,4 +70,27 @@ public class ListTareaService implements IListTareas {
     public List<SubTareaModel> getSubTareasByTarea(TareaModel tarea) {
         return subTareaRepository.findByTareaTar(tarea);
     }
+
+    @Override
+    @Transactional
+    public boolean deleteTarea(Integer id) {
+        try {
+            tareaRepository.deleteById(id);
+            return true;
+        } catch (Exception err) {
+            return false;
+        }
+    }
+
+    @Override
+    @Transactional
+    public boolean deleteSubTarea(Integer id) {
+        try {
+            subTareaRepository.deleteById(id);
+            return true;
+        } catch (Exception err) {
+            return false;
+        }
+    }
+
 }

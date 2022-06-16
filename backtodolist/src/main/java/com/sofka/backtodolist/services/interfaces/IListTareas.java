@@ -22,4 +22,8 @@ public interface IListTareas {
     public Optional<TareaModel> getTareaById(Integer id);
 
     public List<SubTareaModel> getSubTareasByTarea(TareaModel tarea);
+
+    public boolean deleteTarea(Integer id);
+
+    public boolean deleteSubTarea(Integer id);
 }
