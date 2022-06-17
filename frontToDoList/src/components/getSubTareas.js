@@ -18,7 +18,7 @@ export default async function getSubTareas(url, idTarea) {
         return $bodyCard;
     } catch (error) {
         console.log(error);
-        return null;
+        return null
     }
 
 }

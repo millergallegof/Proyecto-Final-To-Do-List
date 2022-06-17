@@ -19,7 +19,7 @@
         </nav>
         <br>
         <div id="cardCrear" class="container card">
-            <form>
+            <form id="formCreateTarea">
                 <div class="form-group row">
                     <label for="nombreTarea" class="col-sm-2 col-form-label">Nombre de la Lista</label>
                     <div class="col-sm-10">
@@ -34,13 +34,45 @@
                 </div>
             </form>
         </div>
-        <div id="tareas" class="container card">
-
-
+        <div id="cardTareas" class="container">
 
 
         </div>
     </div>
+    <template id="cards-template">
+        <div id="tareas" class="container card">
+            <div class="card-header text-center">
+
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <caption class="text-center">Tabla Subtareas</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">completado</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </template>
+    <template id="table-template">
+        <tr>
+            <td class="id"></td>
+            <td class="nombre"></td>
+            <td class="completado"></td>
+            <td>
+                <button id="edit" class="btn btn-secondary">Editar</button>
+                <button id="delete" class="btn btn-secondary">Eliminar</button>
+            </td>
+        </tr>
+    </template>
 
 
 
