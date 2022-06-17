@@ -37,11 +37,12 @@ d.addEventListener('click', async (e) => {
         e.preventDefault();
 
         if (!idSubTarea) {
-            createSubTarea(url, subTarea, e.target.id)
+            createSubTarea(url, subTarea, idTarea)
         } else {
             updateSubTarea(url, idSubTarea, subTarea, idTarea)
+            location.reload();
         }
-        location.reload();
+
     }
 
     if (e.target.matches("#edit")) {
@@ -62,7 +63,6 @@ d.addEventListener('click', async (e) => {
         let idSubTarea = e.target.dataset.id
         let subTarea = e.target.dataset.name
         let idTarea = e.target.dataset.idTarea
-        console.log(complete);
         if (complete) {
             buttonEditar.disabled = true;
             textsub.style.color = "grey";

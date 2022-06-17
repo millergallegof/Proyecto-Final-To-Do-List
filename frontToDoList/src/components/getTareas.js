@@ -72,10 +72,6 @@ export default async function getTareas(url) {
                 $inputcomplete.dataset.name = element.name;
                 $inputcomplete.dataset.idTarea = idTarea;
 
-                if (element.complete) {
-                    $inputcomplete.checked = true
-                }
-
                 $container.appendChild($inputcomplete)
 
                 $templateTable.querySelector(".id").textContent = element.id;
@@ -87,6 +83,15 @@ export default async function getTareas(url) {
                 $templateTable.querySelector("#edit").dataset.name = element.name;
                 $templateTable.querySelector("#edit").dataset.idTarea = idTarea;
                 $templateTable.querySelector("#delete").dataset.id = element.id;
+
+                if (element.complete) {
+                    $inputcomplete.checked = true
+                    $templateTable.querySelector("#edit").disabled = true
+                    $templateTable.querySelector(".nombre").style.color = "grey"
+                } else {
+                    $templateTable.querySelector("#edit").disabled = false
+                    $templateTable.querySelector(".nombre").style.color = "black"
+                }
                 let $clone = document.importNode($templateTable, true);
                 $fragmentTable.append($clone)
             });
