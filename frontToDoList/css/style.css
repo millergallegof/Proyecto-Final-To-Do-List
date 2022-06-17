@@ -15,3 +15,8 @@ nav {
 .btnDeleteTarea {
     margin-left: 30px;
 }
+
+.form-check-input:checked {
+    background-color: rgb(0, 0, 0);
+
+}

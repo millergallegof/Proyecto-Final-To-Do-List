@@ -58,9 +58,31 @@ export default async function getTareas(url) {
 
             const $fragmentTable = document.createDocumentFragment();
             elementos.forEach(element => {
+                const $container = document.createElement('div')
+                const $inputcomplete = document.createElement('input')
+
+                $container.classList.add("form-check", "form-switch")
+
+                $inputcomplete.classList.add("form-check-input")
+                $inputcomplete.setAttribute("type", "checkbox")
+                $inputcomplete.setAttribute("data-onstyle", "dark")
+                $inputcomplete.setAttribute("role", "switch")
+                $inputcomplete.setAttribute("id", "switch")
+                $inputcomplete.dataset.id = element.id;
+                $inputcomplete.dataset.name = element.name;
+                $inputcomplete.dataset.idTarea = idTarea;
+
+                if (element.complete) {
+                    $inputcomplete.checked = true
+                }
+
+                $container.appendChild($inputcomplete)
+
                 $templateTable.querySelector(".id").textContent = element.id;
                 $templateTable.querySelector(".nombre").textContent = element.name;
-                $templateTable.querySelector(".completado").textContent = element.complete;
+                $templateTable.querySelector(".completado").innerHTML = ""
+                $templateTable.querySelector(".completado").append($container);
+
                 $templateTable.querySelector("#edit").dataset.id = element.id;
                 $templateTable.querySelector("#edit").dataset.name = element.name;
                 $templateTable.querySelector("#edit").dataset.idTarea = idTarea;

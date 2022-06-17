@@ -4,12 +4,11 @@ import createTarea from "./components/createTarea.js";
 import deleteTarea from "./components/deleteTarea.js";
 import createSubTarea from "./components/createSubTarea.js";
 import updateSubTarea from "./components/updateSubTarea.js";
-
+import deleteSubTarea from "./components/deleteSubTarea.js";
 
 
 const d = document;
 const $form = d.getElementById("formCreateTarea")
-
 
 let url = AppConfig.urlBackend;
 getTareas(url)
@@ -42,8 +41,7 @@ d.addEventListener('click', async (e) => {
         } else {
             updateSubTarea(url, idSubTarea, subTarea, idTarea)
         }
-
-
+        location.reload();
     }
 
     if (e.target.matches("#edit")) {
@@ -53,6 +51,28 @@ d.addEventListener('click', async (e) => {
         $containerSub.children[1].value = e.target.dataset.name
     }
 
+    if (e.target.matches("#delete")) {
+        deleteSubTarea(url, e.target.dataset.id)
+    }
+
+    if (e.target.matches("#switch")) {
+        const buttonEditar = e.target.parentElement.parentElement.parentElement.children[3].children[0]
+        const textsub = e.target.parentElement.parentElement.parentElement.children[1]
+        let complete = e.target.checked
+        let idSubTarea = e.target.dataset.id
+        let subTarea = e.target.dataset.name
+        let idTarea = e.target.dataset.idTarea
+        console.log(complete);
+        if (complete) {
+            buttonEditar.disabled = true;
+            textsub.style.color = "grey";
+        } else {
+            buttonEditar.disabled = false;
+            textsub.style.color = "black";
+        }
+
+        updateSubTarea(url, idSubTarea, subTarea, idTarea, complete)
 
 
+    }
 })
