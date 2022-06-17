@@ -19,7 +19,7 @@
                 </li>
             </ul>
         </li>
-1. **Pasos para ejecutar el programa**
+2. **Pasos para ejecutar el programa**
             <ul>
                 <li>En el servidor se pueden crear tareas en la parte superior</li>
                 <li>al crear la tarea aparecera una card con una lista de sub tareas y unos botones para ejecutar
@@ -31,3 +31,4 @@
                     se podra cambiar el nombre de la subtarea</li>
             </ul>
 
+3. **para mas informacion visite el video en youtube: https://youtu.be/phII0YDymIY **
