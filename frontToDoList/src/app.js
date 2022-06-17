@@ -1,3 +1,6 @@
+/**
+* importacion de modulos internos del paquete
+*/
 import getTareas from "./components/getTareas.js";
 import AppConfig from "./appConfig.js"
 import createTarea from "./components/createTarea.js";
@@ -6,13 +9,32 @@ import createSubTarea from "./components/createSubTarea.js";
 import updateSubTarea from "./components/updateSubTarea.js";
 import deleteSubTarea from "./components/deleteSubTarea.js";
 
-
+/**
+* elementos extraidos del DOM
+*/
 const d = document;
 const $form = d.getElementById("formCreateTarea")
-
 let url = AppConfig.urlBackend;
 getTareas(url)
 
+/**
+* Eventos del proyecto
+*/
+
+/**
+* [funcion anonima incluida en el evento submit, el cual hace la verificacion 
+*    de si el usuario esta creado o es un usuario nuevo
+*    creado -> llama la funcion update importada
+*    nuevo -> llama la funcion create importada
+* ]
+*
+* @param e elemento que retorna el evento
+*
+* @author Miller Esteban Gallego Forero - miller.gallegof@gmail.com
+*
+* @since [1.0.0]
+*
+*/
 d.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -25,6 +47,22 @@ d.addEventListener('submit', async (e) => {
     }
 })
 
+/**
+* [funcion anonima incluida en el evento click, el cual hace la verificacion de si se esta dando click en el boton deleteTarea, CrearSubTarea, editar, borrar o switch
+*   deleteTarea -> llama la funcion deleteTarea que es importada
+*   CrearSubTarea -> crea una elemento para la entidad Subtarea
+*   editar -> envia el valor de la tabla a los input de creacion
+*   eliminar -> llama la funcion deleteSubtarea que es importada
+*   switch -> llama la funcion updateSubtarea que es importada - modifica elementos del DOM
+* ]
+*
+* @param e elemento que retorna el evento
+*
+* @author Miller Esteban Gallego Forero - miller.gallegof@gmail.com
+*
+* @since [1.0.0]
+*
+*/
 d.addEventListener('click', async (e) => {
     if (e.target.matches(".btnDeleteTarea")) {
         deleteTarea(url, e.target.id);
