@@ -1,22 +1,17 @@
 'use strict'
-export default async function createTarea(url, nameTarea) {
+
+export default async function deleteTarea(url, idTarea) {
     try {
         let options = {
-            method: "POST",
+            method: "DELETE",
             headers: {
                 "Content-Type": "application/json; charset=utf-8"
-            },
-            body: JSON.stringify({
-                name: nameTarea,
-            })
+            }
         }
-        let res = await fetch(`${url}tarea`, options)
-        let json = await res.json()
+        let res = await fetch(`${url}tarea/delete/${idTarea}`, options)
         if (!res.ok) throw new { status: res.status, statusText: res.statusText }
         location.reload();
     } catch (error) {
         console.log(error);
     }
-
-
 }

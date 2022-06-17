@@ -41,17 +41,21 @@
     </div>
     <template id="cards-template">
         <div id="tareas" class="container card">
-            <div class="card-header text-center">
-
+            <div class="card-header d-flex justify-content-center h3">
             </div>
             <div class="card-body">
+                <br>
+                <div class="input-group">
+                    
+                </div>
+                <br>
                 <table class="table">
                     <caption class="text-center">Tabla Subtareas</caption>
                     <thead>
                         <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">nombre</th>
-                            <th scope="col">completado</th>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Completado</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -69,7 +73,7 @@
             <td class="completado"></td>
             <td>
                 <button id="edit" class="btn btn-secondary">Editar</button>
-                <button id="delete" class="btn btn-secondary">Eliminar</button>
+                <button id="delete" class="btn btn-dark">Eliminar</button>
             </td>
         </tr>
     </template>

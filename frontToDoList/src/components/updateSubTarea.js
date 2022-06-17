@@ -1,5 +1,5 @@
 'use strict'
-export default async function createTarea(url, nameTarea) {
+export default async function updateSubTarea(url, idSubTarea, nameSubTarea, idTarea, completeSub = false) {
     try {
         let options = {
             method: "POST",
@@ -7,10 +7,14 @@ export default async function createTarea(url, nameTarea) {
                 "Content-Type": "application/json; charset=utf-8"
             },
             body: JSON.stringify({
-                name: nameTarea,
+                name: nameSubTarea,
+                complete: completeSub,
+                tareaTar: {
+                    id: idTarea
+                }
             })
         }
-        let res = await fetch(`${url}tarea`, options)
+        let res = await fetch(`${url}subtarea/update/${idSubTarea}`, options)
         let json = await res.json()
         if (!res.ok) throw new { status: res.status, statusText: res.statusText }
         location.reload();
